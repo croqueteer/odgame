@@ -75,6 +75,13 @@
     <Compile Include="Game\ISessionFactory.cs" />
     <Compile Include="Server\InjectCommandLoader.cs" />
     <Compile Include="Session\BaseSession.cs" />
+    <Compile Include="Room\IRoom.cs" />
+    <Compile Include="Room\Commands\RoomCommandFactory.cs" />
+    <Compile Include="Room\Session\RoomSession.cs" />
+    <Compile Include="Room\Session\RoomSessionFactory.cs" />
+    <Compile Include="Room\Registry\LocalRoomRegistry.cs" />
+    <Compile Include="Room\Registry\DistributedRoomRegistry.cs" />
+    <Compile Include="Room\Registry\IRoomRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -88,6 +95,10 @@
     <Folder Include="Command\" />
     <Folder Include="Game\" />
     <Folder Include="Session\" />
+    <Folder Include="Room\" />
+    <Folder Include="Room\Commands\" />
+    <Folder Include="Room\Session\" />
+    <Folder Include="Room\Registry\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
