@@ -3,24 +3,22 @@ using odgame;
 
 namespace mylobby
 {
-	public class LoginCommand : IGameCommand
+	public class LoginCommand : IGameCommand<LobbySession>
 	{
-		private const string ID = "Login";
-
 		public string Id()
 		{
-			return ID;
+			return "Login";
 		}
 
 		public void Init(game.GameRequest req)
 		{ 
 		}
 
-		public void Execute(IGameSession session)
+		public void Execute(LobbySession session)
 		{
 			game.GameReply reply = new game.GameReply();
-			reply.messageType = ID;
-			session.Send(reply);
+            reply.messageType = Id();
+            session.SendEvent(reply);
 		}
 	}
 }

@@ -57,8 +57,17 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Ninject.Extensions.Conventions">
-      <HintPath>..\packages\Ninject.Extensions.Conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+      <HintPath>..\packages\ninject.extensions.conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Server\BaseServer.cs" />
@@ -66,22 +75,18 @@
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Utils\PacketProtocol.cs" />
     <Compile Include="Game\IGameCommand.cs" />
-    <Compile Include="Game\IClientHandle.cs" />
     <Compile Include="Game\ICommandFactory.cs" />
     <Compile Include="Protobuf\Game2.cs" />
     <Compile Include="Command\CommandReceiveFilter.cs" />
     <Compile Include="Command\CommandRequestInfo.cs" />
-    <Compile Include="Game\IGameSession.cs" />
-    <Compile Include="Game\ISessionFactory.cs" />
     <Compile Include="Server\InjectCommandLoader.cs" />
     <Compile Include="Session\BaseSession.cs" />
     <Compile Include="Room\IRoom.cs" />
-    <Compile Include="Room\Commands\RoomCommandFactory.cs" />
     <Compile Include="Room\Session\RoomSession.cs" />
-    <Compile Include="Room\Session\RoomSessionFactory.cs" />
     <Compile Include="Room\Registry\LocalRoomRegistry.cs" />
     <Compile Include="Room\Registry\DistributedRoomRegistry.cs" />
     <Compile Include="Room\Registry\IRoomRegistry.cs" />
+    <Compile Include="Room\Commands\CreateRoom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

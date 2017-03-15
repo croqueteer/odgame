@@ -11,7 +11,7 @@ using Ninject.Extensions.Conventions;
 
 namespace odgame
 {
-	public class BaseServer : AppServer<BaseSession, CommandRequestInfo>
+    public class BaseServer<T> : AppServer<T, CommandRequestInfo> where T:AppSession<T, CommandRequestInfo>, IAppSession, new()
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger
 			(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -47,13 +47,13 @@ namespace odgame
 			return true;
 		}
 
-		protected override bool SetupCommandLoaders(List<ICommandLoader<ICommand<BaseSession, CommandRequestInfo>>> commandLoaders)
+		protected override bool SetupCommandLoaders(List<ICommandLoader<ICommand<T, CommandRequestInfo>>> commandLoaders)
 		{
-			List<ICommand<BaseSession, CommandRequestInfo>> list = new List<ICommand<BaseSession, CommandRequestInfo>>();
-			list.Add(new BaseCommand());
-			IEnumerable<ICommand<BaseSession, CommandRequestInfo>> _commands = list;
+			List<ICommand<T, CommandRequestInfo>> list = new List<ICommand<T, CommandRequestInfo>>();
+			list.Add(new BaseCommand<T>());
+			IEnumerable<ICommand<T, CommandRequestInfo>> _commands = list;
 
-			commandLoaders.Add(new InjectCommandLoader<ICommand<BaseSession, CommandRequestInfo>>(_commands));
+			commandLoaders.Add(new InjectCommandLoader<ICommand<T, CommandRequestInfo>>(_commands));
 			return true;
 		}
 

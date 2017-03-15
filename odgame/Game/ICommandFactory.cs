@@ -1,8 +1,11 @@
 ﻿using System;
+using SuperSocket.SocketBase;
+
+
 namespace odgame
 {
-	public interface ICommandFactory
+    public interface ICommandFactory<T> where T:AppSession<T, CommandRequestInfo>, IAppSession, new()
 	{
-		IGameCommand Create(game.GameRequest req);
+		IGameCommand<T> Create(game.GameRequest req);
 	}
 }

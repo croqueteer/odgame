@@ -4,26 +4,26 @@ using odgame;
 
 namespace mylobby
 {
-	public class CommandFactory : ICommandFactory
+	public class CommandFactory : ICommandFactory<LobbySession>
 	{
-		private static Dictionary<string, Func<IGameCommand>> commandMap = new Dictionary<string, Func<IGameCommand>>();
+		private static Dictionary<string, Func<IGameCommand<LobbySession>>> commandMap = new Dictionary<string, Func<IGameCommand<LobbySession>>>();
 
-		public CommandFactory(IEnumerable<IGameCommand> commands)
+		public CommandFactory(IEnumerable<IGameCommand<LobbySession>> commands)
     	{
-			commandMap = new Dictionary<string, Func<IGameCommand>>();
-        	foreach (IGameCommand command in commands)
+            commandMap = new Dictionary<string, Func<IGameCommand<LobbySession>>>();
+            foreach (IGameCommand<LobbySession> command in commands)
         	{
-				commandMap.Add(command.Id(), () => (IGameCommand)Activator.CreateInstance(command.GetType()));
+                commandMap.Add(command.Id(), () => (IGameCommand<LobbySession>)Activator.CreateInstance(command.GetType()));
 			}
 		}
 
-		public IGameCommand Create(game.GameRequest req)
+        public IGameCommand<LobbySession> Create(game.GameRequest req)
 		{
-			Func<IGameCommand> f;
+            Func<IGameCommand<LobbySession>> f;
 			commandMap.TryGetValue(req.messageType, out f);
 			if (f != null)
 			{
-				IGameCommand cmd = f();
+                IGameCommand<LobbySession> cmd = f();
 				cmd.Init(req);
 				return cmd;
 			}

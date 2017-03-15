@@ -14,12 +14,11 @@ namespace mylobby
 		{
 			Kernel.Bind(x => x.FromThisAssembly()
 			.SelectAllClasses()
-			.InheritedFrom<IGameCommand>()
-			.BindSelection((type, baseTypes) => new[] { typeof(IGameCommand) }));
+			.InheritedFrom<IGameCommand<LobbySession>>()
+                .BindSelection((type, baseTypes) => new[] { typeof(IGameCommand<LobbySession>) }));
 
-			Bind<ICommandFactory>().To<CommandFactory>().InSingletonScope();
-			Bind<ISessionFactory>().To<SessionFactory>().InSingletonScope();
-
+            Bind<ICommandFactory<LobbySession>>().To<CommandFactory>().InSingletonScope();
+			
 		}
 	}
 }

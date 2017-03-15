@@ -7,35 +7,30 @@ using odgame;
 
 namespace mylobby
 {
-	public class LobbySession : IGameSession
+    public class LobbySession : BaseSession<LobbySession>
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger
 			(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-		IClientHandle client;
-
-		public LobbySession(IClientHandle client)
+        protected override void OnSessionStarted()
 		{
-			this.client = client;
-		}
-
-		public void OnSessionStarted()
-		{
+            base.OnSessionStarted();
 			log.Debug("New lobby session started");
 		}
 
-		public void HandleException(Exception e)
+        protected override void HandleException(Exception e)
 		{
 		}
 
-		public void OnSessionClosed()
+        protected override void OnSessionClosed()
 		{
+            base.OnSessionStarted();
 			log.Debug("lobby session closed");
 		}
 
-		public void Send(game.GameReply reply)
+        public void SendEvent(game.GameReply reply)
 		{
-			this.client.Send(reply);
+            base.Send(reply);
 		}
 	}
 }

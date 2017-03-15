@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "odgame", "odgame\odgame.csproj", "{4D51083D-3860-4C75-8E22-A44F66F987FC}"
@@ -7,12 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mylobby", "mylobby\mylobby.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myserver", "myserver\myserver.csproj", "{C193587C-BAB7-4BC6-993F-BCAF9BFAF789}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{1EC3963C-F110-4B22-8B51-3DC08F326560}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC4C7A5D-9C54-47EE-ADAE-6813F633993B}"
 	ProjectSection(SolutionItems) = preProject
 		gamepoc.sln = gamepoc.sln
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mybattle", "mybattle\mybattle.csproj", "{B1187E65-9E04-405C-B4E8-2096960330CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +24,10 @@ Global
 		{4D51083D-3860-4C75-8E22-A44F66F987FC}.Debug|x86.Build.0 = Debug|x86
 		{4D51083D-3860-4C75-8E22-A44F66F987FC}.Release|x86.ActiveCfg = Release|x86
 		{4D51083D-3860-4C75-8E22-A44F66F987FC}.Release|x86.Build.0 = Release|x86
+		{B1187E65-9E04-405C-B4E8-2096960330CD}.Debug|x86.ActiveCfg = Debug|x86
+		{B1187E65-9E04-405C-B4E8-2096960330CD}.Debug|x86.Build.0 = Debug|x86
+		{B1187E65-9E04-405C-B4E8-2096960330CD}.Release|x86.ActiveCfg = Release|x86
+		{B1187E65-9E04-405C-B4E8-2096960330CD}.Release|x86.Build.0 = Release|x86
 		{BB3536EB-2714-4130-B5A5-E7DE25EA8E4B}.Debug|x86.ActiveCfg = Debug|x86
 		{BB3536EB-2714-4130-B5A5-E7DE25EA8E4B}.Debug|x86.Build.0 = Debug|x86
 		{BB3536EB-2714-4130-B5A5-E7DE25EA8E4B}.Release|x86.ActiveCfg = Release|x86
@@ -32,9 +36,7 @@ Global
 		{C193587C-BAB7-4BC6-993F-BCAF9BFAF789}.Debug|x86.Build.0 = Debug|x86
 		{C193587C-BAB7-4BC6-993F-BCAF9BFAF789}.Release|x86.ActiveCfg = Release|x86
 		{C193587C-BAB7-4BC6-993F-BCAF9BFAF789}.Release|x86.Build.0 = Release|x86
-		{1EC3963C-F110-4B22-8B51-3DC08F326560}.Debug|x86.ActiveCfg = Debug|x86
-		{1EC3963C-F110-4B22-8B51-3DC08F326560}.Debug|x86.Build.0 = Debug|x86
-		{1EC3963C-F110-4B22-8B51-3DC08F326560}.Release|x86.ActiveCfg = Release|x86
-		{1EC3963C-F110-4B22-8B51-3DC08F326560}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal

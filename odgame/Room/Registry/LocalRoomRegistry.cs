@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using SuperSocket.SocketBase;
 
 namespace odgame
 {
-	public class LocalRoomRegistry : IRoomRegistry
+    public class LocalRoomRegistry<T, R> : IRoomRegistry<T, R> where T:AppSession<T, CommandRequestInfo>, IAppSession, new() where R:IRoom<T>, new()
 	{
-		ConcurrentDictionary<string, IRoom> rooms = new ConcurrentDictionary<string, IRoom>();
+		ConcurrentDictionary<string, IRoom<T>> rooms = new ConcurrentDictionary<string, IRoom<T>>();
 
-		public IRoom FindRoom(string roomId)
+		public IRoom<T> FindRoom(string roomId)
 		{
-			IRoom room;
+			IRoom<T> room;
 			rooms.TryGetValue(roomId, out room);
 			return room;
 		}
 
-		public IRoom FindOrCreateRoom(string roomId)
+		public IRoom<T> FindOrCreateRoom(string roomId)
 		{
-			IRoom room;
-			rooms.TryGetValue(roomId, out room);
+            IRoom<T> room = rooms.GetOrAdd(roomId, new R());
 			return room;
 		}
 

@@ -8,7 +8,7 @@ using odgame;
 
 namespace mylobby
 {
-	public class LobbyServer : BaseServer
+	public class LobbyServer : BaseServer<LobbySession>
 	{
 		public LobbyServer() : base(new ServerModule())
 		{

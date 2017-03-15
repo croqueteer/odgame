@@ -1,25 +1,22 @@
 ﻿using System;
+using SuperSocket.SocketBase;
+
+
 namespace odgame
 {
-	public class RoomSession : IGameSession
+    public class RoomSession<T> : BaseSession<T> where T:AppSession<T, CommandRequestInfo>, IAppSession, new()
 	{
-		IRoom room { get; set;}
-		IClientHandle client;
+		IRoom<T> room { get; set;}
 
-		public RoomSession(IClientHandle handle)
-		{
-			this.client = handle;
-		}
-
-		public void OnSessionStarted()
+        protected override void OnSessionStarted()
 		{ }
-		public void HandleException(Exception e)
+        protected override void HandleException(Exception e)
 		{ }
-		public void OnSessionClosed()
+        protected override void OnSessionClosed()
 		{ }
-		public void Send(game.GameReply reply)
-		{
-			this.client.Send(reply);
-		}
+        public void SendEvent(game.GameReply reply)
+        {
+            base.Send(reply);
+        }
 	}
 }
